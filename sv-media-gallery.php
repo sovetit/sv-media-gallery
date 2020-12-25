@@ -28,7 +28,7 @@ if ( ! defined( 'SV_GALLERY_PLUGIN_DIR' ) ) {
 	define( 'SV_GALLERY_PLUGIN_URL', plugins_url( SV_GALLERY_PLUGIN_NAME ) );
 
 	// Версия плагина
-	define( 'SV_GALLERY_VERSION', '1.0.0' );
+	define( 'SV_GALLERY_VERSION', '1.4.0' );
 }
 
 /**
