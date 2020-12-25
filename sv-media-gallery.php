@@ -45,6 +45,19 @@ function sv_gallery_languages() {
 add_action( 'plugins_loaded', 'sv_gallery_languages' );
 
 /**
+ * Локализация плагина
+ * @see sv_gallery_languages
+ */
+function sv_gallery_languages() {
+	load_plugin_textdomain(
+		'sv_media_gallery',
+		false,
+		SV_GALLERY_PLUGIN_NAME . '/languages/'
+	);
+}
+add_action( 'plugins_loaded', 'sv_gallery_languages' );
+
+/**
  * Создаем новый тип записи Галерея
  * @see sv_gallery_init
  */
