@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SV Media Gallery\n"
-"POT-Creation-Date: 2020-12-25 20:25+1000\n"
-"PO-Revision-Date: 2020-12-25 20:25+1000\n"
+"POT-Creation-Date: 2020-12-25 22:51+1000\n"
+"PO-Revision-Date: 2020-12-25 22:53+1000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -42,65 +42,89 @@ msgstr "Шорткод"
 msgid "Gallery settings"
 msgstr "Настройки галереи"
 
-#: sv-media-gallery.php:391 sv-media-gallery.php:441
+#: sv-media-gallery.php:391 sv-media-gallery.php:468
 msgid "Effect"
 msgstr "Эффект"
 
-#: sv-media-gallery.php:394 sv-media-gallery.php:444
+#: sv-media-gallery.php:394 sv-media-gallery.php:471
 msgid "Image transition effect"
 msgstr "Эффект перехода между изображениями"
 
-#: sv-media-gallery.php:396 sv-media-gallery.php:446
+#: sv-media-gallery.php:396 sv-media-gallery.php:474
 msgid "Miniatures"
 msgstr "Миниатюры"
 
-#: sv-media-gallery.php:399 sv-media-gallery.php:449
+#: sv-media-gallery.php:399 sv-media-gallery.php:477
 msgid "Enable gallery thumbnails"
 msgstr "Включить миниатюры для галереи"
 
-#: sv-media-gallery.php:401 sv-media-gallery.php:451
+#: sv-media-gallery.php:401 sv-media-gallery.php:479
 msgid "Animation"
 msgstr "Анимация"
 
-#: sv-media-gallery.php:404 sv-media-gallery.php:454
+#: sv-media-gallery.php:404 sv-media-gallery.php:482
 msgid "Enable thumbnail animation"
 msgstr "Включить анимацию миниатюр"
 
-#: sv-media-gallery.php:406 sv-media-gallery.php:456
+#: sv-media-gallery.php:406 sv-media-gallery.php:484
 msgid "Sketches"
 msgstr "Эскизы"
 
-#: sv-media-gallery.php:409 sv-media-gallery.php:459
+#: sv-media-gallery.php:409 sv-media-gallery.php:487
 msgid "Show thumbnails"
 msgstr "Показать эскизы"
 
-#: sv-media-gallery.php:412 sv-media-gallery.php:462
+#: sv-media-gallery.php:412 sv-media-gallery.php:490
 msgid "Share buttons"
 msgstr "Кнопки поделиться"
 
-#: sv-media-gallery.php:414 sv-media-gallery.php:464
+#: sv-media-gallery.php:414 sv-media-gallery.php:492
 msgid "Show share buttons"
 msgstr "Показать кнопки поделиться"
 
-#: sv-media-gallery.php:417 sv-media-gallery.php:467
+#: sv-media-gallery.php:417 sv-media-gallery.php:495
 msgid "Image upload button"
 msgstr "Кнопка загрузки изображения"
 
-#: sv-media-gallery.php:419 sv-media-gallery.php:469
+#: sv-media-gallery.php:419 sv-media-gallery.php:497
 msgid "Show Image Upload Button"
 msgstr "Показать кнопку загрузки изображения"
 
-#: sv-media-gallery.php:421 sv-media-gallery.php:471
+#: sv-media-gallery.php:421 sv-media-gallery.php:461
 msgid "Number of images"
 msgstr "Количество изображений"
 
-#: sv-media-gallery.php:426 sv-media-gallery.php:476
+#: sv-media-gallery.php:426 sv-media-gallery.php:466
 msgid "Number of preload images"
 msgstr "Количество изображений предварительной загрузки"
 
 #: sv-media-gallery.php:437
 msgid "General settings"
 msgstr "Общие настройки"
+
+#: sv-media-gallery.php:441
+msgid "Container width"
+msgstr "Ширина контейнера"
+
+#: sv-media-gallery.php:446
+msgid "Common container width in percentage for css"
+msgstr "Ширина общего контейнера в процентах для css"
+
+#: sv-media-gallery.php:448
+msgid "Image Width"
+msgstr "Ширина изображения"
+
+#: sv-media-gallery.php:453
+msgid "Thumbnail image width in pixels for php"
+msgstr "Ширина изображения миниатюры в пикселях для php"
+
+#: sv-media-gallery.php:454
+msgid "Image height"
+msgstr "Высота изображения"
+
+#: sv-media-gallery.php:459
+msgid "Height of thumbnail image in pixels for php"
+msgstr "Ширина изображения миниатюры в пикселях для php"
 
 #. Plugin Name of the plugin/theme
 msgid "SV Media Gallery"

@@ -5,7 +5,7 @@
  * Plugin URI:  https://sovetit.ru/wordpress/plugins/carbon-fields/media-gallery/
  * Author URI:  https://sovetit.ru/about/
  * Author:      Pavel Ketov
- * Version:     1.2.0
+ * Version:     1.3.1
  * Text Domain: sv_media_gallery
  * Domain Path: /languages
  */
@@ -87,10 +87,18 @@ function sv_media_gallery() {
 }
 add_action( 'carbon_fields_register_fields', 'sv_media_gallery' );
 
+// Ширина изображения
+$image_size_width = get_option( 'image_size_width' );
+$image_size_width_option = ( empty( $image_size_width ) ) ? 184 : $image_size_width;
+
+// Высота изображения
+$image_size_height = get_option( 'image_size_height' );
+$image_size_height_option = ( empty( $image_size_height ) ) ? 125 : $image_size_height;
+
 /**
  * Регистрирует новый размер картинки (миниатюры).
  */
-add_image_size( 'sv-gallery', 184, 125, true );
+add_image_size( 'sv-gallery', $image_size_width_option, $image_size_height_option, true );
 
 /**
  * Загружаем наш шаблон из директории templates
@@ -253,21 +261,33 @@ function sv_gallery_scripts() {
 		 * Lightgallery API
 		 * @link http://sachinchoolur.github.io/lightGallery/docs/api.html
 		 */
-		wp_add_inline_script( 'sv-gallery-lightgallery', '
+		wp_add_inline_script( 'sv-gallery-lightgallery', "
 $(function() {
-	$( ".sv-gallery" ).lightGallery({
-		mode: 				"' . $gallery_option_mode . '",
-		thumbnail:			' . $gallery_option_thumbnail . ',
-		animateThumb:		' . $gallery_option_animate_thumb . ',
-		showThumbByDefault: ' . $gallery_option_show_thumb_by_default . ',
-		share: 				' . $gallery_option_share . ',
-		download: 			' . $gallery_option_download . ',
-		preload: 			' . $gallery_option_preload . '
+	$( '.sv-gallery' ).lightGallery({
+		mode: 				'{$gallery_option_mode}',
+		thumbnail:			{$gallery_option_thumbnail},
+		animateThumb:		{$gallery_option_animate_thumb},
+		showThumbByDefault: {$gallery_option_show_thumb_by_default},
+		share: 				{$gallery_option_share},
+		download: 			{$gallery_option_download},
+		preload: 			{$gallery_option_preload}
 	});
 });
-		', 'after' );
+		", 'after' );
 
 	}
+
+	// Ширина контейнера
+	$container_width = carbon_get_theme_option( 'container_width' );
+	$container_width_option = ( empty( $container_width ) ) ? 100 : $container_width;
+
+	$sv_gallery_style = "
+		.sv-container{
+			background: {$container_width_option}%;
+		}
+	";
+	wp_add_inline_style( 'sv-gallery-style', trim( $sv_gallery_style ) );
+
 }
 add_action( 'wp_enqueue_scripts', 'sv_gallery_scripts' );
 
@@ -438,43 +458,63 @@ function sv_gallery_options_default() {
 		->set_page_parent( 'edit.php?post_type=sv_gallery' )
 		->set_page_file( 'general-settings' )
 		->add_fields([
-			Field::make( 'select', 'mode', __( 'Effect', 'sv_media_gallery' ) )
-			     ->add_options(
-				sv_gallery_field_mode()
-			)->set_help_text( __( 'Image transition effect', 'sv_media_gallery' ) ),
+			Field::make( 'text', 'container_width', __( 'Container width', 'sv_media_gallery' ) )
+			     ->set_attribute( 'type', 'number' )
+			     ->set_attribute( 'max', 100 )      // Максимальное значение
+			     ->set_attribute( 'min', 1 )       // Миниальное значение
+			     ->set_default_value( 100 )        // По умолчанию 100%
+			     ->set_help_text( __( 'Common container width in percentage for css', 'sv_media_gallery' ) )->set_width(15),
 
-			Field::make( 'checkbox', 'thumbnail', __( 'Miniatures', 'sv_media_gallery' ) )
-			     ->set_option_value( 'yes' )
-			     ->set_default_value( 'yes' ) // По умолчанию миниатюры для галереи включены
-			     ->set_help_text( __( 'Enable gallery thumbnails', 'sv_media_gallery' ) ),
+			Field::make( 'text', 'image_size_width', __( 'Image Width', 'sv_media_gallery' ) )
+			     ->set_attribute( 'type', 'number' )
+			     ->set_attribute( 'max', 1000 )     // Максимальное значение
+			     ->set_attribute( 'min', 1 )       // Миниальное значение
+			     ->set_default_value( 184 )        // По умолчанию 184px
+			     ->set_help_text( __( 'Thumbnail image width in pixels for php', 'sv_media_gallery' ) )->set_width(15),
 
-			Field::make( 'checkbox', 'animate_thumb', __( 'Animation', 'sv_media_gallery' ) )
-			     ->set_option_value( 'yes' )
-			     ->set_default_value( 'yes' ) // По умолчанию анимация миниатюр включена
-			     ->set_help_text( __( 'Enable thumbnail animation', 'sv_media_gallery' ) ),
-
-			Field::make( 'checkbox', 'show_thumb_by_default', __( 'Sketches', 'sv_media_gallery' ) )
-			     ->set_option_value( 'yes' )
-			     ->set_default_value( 'yes' ) // По умолчанию эскизы включены
-			     ->set_help_text( __( 'Show thumbnails', 'sv_media_gallery' ) ),
-
-			// По умолчанию эскизы выключены
-			Field::make( 'checkbox', 'share', __( 'Share buttons', 'sv_media_gallery' ) )
-			     ->set_option_value( 'yes' )
-			     ->set_help_text( __( 'Show share buttons', 'sv_media_gallery' ) ),
-
-			// По умолчанию кнопка загрузки изображения скрыта
-			Field::make( 'checkbox', 'download', __( 'Image upload button', 'sv_media_gallery' ) )
-			     ->set_option_value( 'yes' )
-			     ->set_help_text( __( 'Show Image Upload Button', 'sv_media_gallery' ) ),
+			Field::make( 'text', 'image_size_height', __( 'Image height', 'sv_media_gallery' ) )
+			     ->set_attribute( 'type', 'number' )
+			     ->set_attribute( 'max', 1000 )     // Максимальное значение
+			     ->set_attribute( 'min', 1 )       // Миниальное значение
+			     ->set_default_value( 125 )        // По умолчанию 125px
+			     ->set_help_text( __( 'Height of thumbnail image in pixels for php', 'sv_media_gallery' ) )->set_width(15),
 
 			Field::make( 'text', 'preload', __( 'Number of images', 'sv_media_gallery' ) )
 			     ->set_attribute( 'type', 'number' )
 			     ->set_attribute( 'max', 10 )      // Максимальное кол-во
 			     ->set_attribute( 'min', 1 )       // Миниальное кол-во
 			     ->set_default_value( 2 )          // По умолчанию 2 изображения
-			     ->set_help_text( __( 'Number of preload images', 'sv_media_gallery' ) ),
+			     ->set_help_text( __( 'Number of preload images', 'sv_media_gallery' ) )->set_width(15),
 
+			Field::make( 'select', 'mode', __( 'Effect', 'sv_media_gallery' ) )
+			     ->add_options(
+				sv_gallery_field_mode()
+			)->set_help_text( __( 'Image transition effect', 'sv_media_gallery' ) )->set_width(25),
+
+			Field::make( 'checkbox', 'thumbnail', __( 'Miniatures', 'sv_media_gallery' ) )
+			     ->set_option_value( 'yes' )
+			     ->set_default_value( 'yes' ) // По умолчанию миниатюры для галереи включены
+			     ->set_help_text( __( 'Enable gallery thumbnails', 'sv_media_gallery' ) )->set_width(30),
+
+			Field::make( 'checkbox', 'animate_thumb', __( 'Animation', 'sv_media_gallery' ) )
+			     ->set_option_value( 'yes' )
+			     ->set_default_value( 'yes' ) // По умолчанию анимация миниатюр включена
+			     ->set_help_text( __( 'Enable thumbnail animation', 'sv_media_gallery' ) )->set_width(30),
+
+			Field::make( 'checkbox', 'show_thumb_by_default', __( 'Sketches', 'sv_media_gallery' ) )
+			     ->set_option_value( 'yes' )
+			     ->set_default_value( 'yes' ) // По умолчанию эскизы включены
+			     ->set_help_text( __( 'Show thumbnails', 'sv_media_gallery' ) )->set_width(30),
+
+			// По умолчанию эскизы выключены
+			Field::make( 'checkbox', 'share', __( 'Share buttons', 'sv_media_gallery' ) )
+			     ->set_option_value( 'yes' )
+			     ->set_help_text( __( 'Show share buttons', 'sv_media_gallery' ) )->set_width(30),
+
+			// По умолчанию кнопка загрузки изображения скрыта
+			Field::make( 'checkbox', 'download', __( 'Image upload button', 'sv_media_gallery' ) )
+			     ->set_option_value( 'yes' )
+			     ->set_help_text( __( 'Show Image Upload Button', 'sv_media_gallery' ) )->set_width(30),
 		]);
 }
 add_action( 'carbon_fields_register_fields', 'sv_gallery_options_default' );
