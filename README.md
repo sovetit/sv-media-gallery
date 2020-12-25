@@ -19,5 +19,12 @@
 ### Демо сетки на сайте
 ![sv-media-gallery](https://sovetit.ru/cms/wp-content/uploads/2020/12/22-12-2020-sovetit.ru-210305.png)
 
+### Демо Общие настройки
+![sv-media-gallery](https://sovetit.ru/cms/wp-content/uploads/2020/12/30-12-2020-sovetit.ru-093703.png)
+
+### Демо настройки отдельной страницы
+![sv-media-gallery](https://sovetit.ru/cms/wp-content/uploads/2020/12/24-12-2020-sovetit.ru-161515.png)
+![sv-media-gallery](https://sovetit.ru/cms/wp-content/uploads/2020/12/24-12-2020-sovetit.ru-161800.png)
+
 ### Локализация!
 Плагин поддерживает русский и английский языки, если нужно добавить другой используйте файл: sv_media_gallery.pot
