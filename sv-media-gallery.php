@@ -5,7 +5,7 @@
  * Plugin URI:  https://sovetit.ru/wordpress/plugins/carbon-fields/media-gallery/
  * Author URI:  https://sovetit.ru/about/
  * Author:      Pavel Ketov
- * Version:     1.3.2
+ * Version:     1.4.0
  * Text Domain: sv_media_gallery
  * Domain Path: /languages
  */
@@ -30,6 +30,16 @@ if ( ! defined( 'SV_GALLERY_PLUGIN_DIR' ) ) {
 	// Версия плагина
 	define( 'SV_GALLERY_VERSION', '1.0.0' );
 }
+
+/**
+ * Подключаем Carbon Fields из директории plugins со всеми зависимостями
+ * @see sv_gallery_carbon_load
+ */
+function sv_gallery_carbon_load() {
+	require_once( 'vendor/autoload.php' );
+	\Carbon_Fields\Carbon_Fields::boot();
+}
+add_action( 'after_setup_theme', 'sv_gallery_carbon_load' );
 
 /**
  * Локализация плагина
