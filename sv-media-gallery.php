@@ -5,7 +5,7 @@
  * Plugin URI:  https://sovetit.ru/wordpress/plugins/carbon-fields/media-gallery/
  * Author URI:  https://sovetit.ru/about/
  * Author:      Pavel Ketov
- * Version:     1.3.1
+ * Version:     1.3.2
  * Text Domain: sv_media_gallery
  * Domain Path: /languages
  */
@@ -283,7 +283,7 @@ $(function() {
 
 	$sv_gallery_style = "
 		.sv-container{
-			background: {$container_width_option}%;
+			width: {$container_width_option}%;
 		}
 	";
 	wp_add_inline_style( 'sv-gallery-style', trim( $sv_gallery_style ) );
