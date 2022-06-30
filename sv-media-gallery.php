@@ -11,7 +11,7 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-/** Импортирируем нужные классы Carbon Fields  */
+/** Импортируем нужные классы Carbon Fields  */
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
