@@ -1,33 +1,23 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => '1.3.1.x-dev',
-    'version' => '1.3.1.9999999-dev',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'name' => 'ketovpavel/sv-media-gallery',
+        'pretty_version' => '1.4.0',
+        'version' => '1.4.0.0',
+        'reference' => NULL,
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
     ),
-    'reference' => '5d3ec2ea5e195246a236d569ca84f07cce612252',
-    'name' => '__root__',
-  ),
-  'versions' => 
-  array (
-    '__root__' => 
-    array (
-      'pretty_version' => '1.3.1.x-dev',
-      'version' => '1.3.1.9999999-dev',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '5d3ec2ea5e195246a236d569ca84f07cce612252',
+    'versions' => array(
+        'ketovpavel/sv-media-gallery' => array(
+            'pretty_version' => '1.4.0',
+            'version' => '1.4.0.0',
+            'reference' => NULL,
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
     ),
-    'htmlburger/carbon-fields' => 
-    array (
-      'pretty_version' => 'v3.2.1',
-      'version' => '3.2.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'cd772f1c6c002207eed71f98a8c54ad9403d5644',
-    ),
-  ),
 );
