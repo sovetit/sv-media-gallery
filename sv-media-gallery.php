@@ -5,7 +5,7 @@
  * Plugin URI:  https://sovetit.ru/wordpress/plugins/carbon-fields/media-gallery/
  * Author URI:  https://sovetit.ru/about/
  * Author:      Pavel Ketov
- * Version:     1.4.1
+ * Version:     1.4.1.0
  * Text Domain: sv_media_gallery
  * Domain Path: /languages
  */
