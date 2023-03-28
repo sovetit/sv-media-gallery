@@ -12,6 +12,6 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=7.0",
-    "ketovpavel/sv-media-gallery": "dev-master"
+    "ketovpavel/sv-media-gallery": "master"
   }
 }
