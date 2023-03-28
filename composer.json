@@ -9,7 +9,7 @@
       "url": "https://github.com/ketovpavel/sv-media-gallery"
     }
   ],
-  "minimum-stability": "1.4.0",
+  "minimum-stability": "stable",
   "require": {
     "php": ">=7.0"
   }
