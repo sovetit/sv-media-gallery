@@ -9,9 +9,8 @@
       "url": "https://github.com/ketovpavel/sv-media-gallery"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "1.4.0",
   "require": {
-    "php": ">=7.0",
-    "ketovpavel/sv-media-gallery": "master"
+    "php": ">=7.0"
   }
 }
