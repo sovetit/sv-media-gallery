@@ -7,5 +7,6 @@
       "type": "vcs",
       "url": "https://github.com/ketovpavel/sv-media-gallery"
     }
-  ]
+  ],
+  "minimum-stability": "dev"
 }
