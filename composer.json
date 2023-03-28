@@ -1,5 +1,14 @@
 {
   "name": "ketovpavel/sv-media-gallery",
   "description": "Displaying a gallery on a site running WordPress cms based on the Carbon Fields plugin as a separate post type or via shortcode(s).",
-  "version": "1.4.0"
+  "version": "1.4.0",
+  "require": {
+    "ketovpavel/sv-media-gallery": "1.0.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/ketovpavel/sv-media-gallery"
+    }
+  ]
 }
