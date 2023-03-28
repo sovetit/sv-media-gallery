@@ -3,13 +3,15 @@
   "description": "Displaying a gallery on a site running WordPress cms based on the Carbon Fields plugin as a separate post type or via shortcode(s).",
   "version": "1.4.0",
   "license": "MIT",
-  "require": {
-    "php": ">=7.0"
-  },
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/ketovpavel/sv-media-gallery"
     }
-  ]
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.0",
+    "ketovpavel/sv-media-gallery": "dev-master"
+  }
 }
